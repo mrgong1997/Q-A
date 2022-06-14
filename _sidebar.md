@@ -3,7 +3,7 @@
 * [**HTML**](docs/1_HTML)
 * **CSS**
   * [**CSS 基础**](docs/2_1_CSS_base)
-  * [**页面布局**](docs/2_1_CSS_base)
+  * [**页面布局**](docs/2_2_CSS_layout)
   * [**定位与浮动**](docs/2_1_CSS_base)
   * [**场景应用**](docs/2_1_CSS_base)
 * **Javascript**

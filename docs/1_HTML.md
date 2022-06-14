@@ -88,7 +88,7 @@
 
 如图：
 
-![script 标签中 defer 和 async 的区别](imgs/4.png)
+![script 标签中 defer 和 async 的区别](imgs/1.png)
 
 ---
 
