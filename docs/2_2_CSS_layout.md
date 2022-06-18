@@ -13,7 +13,7 @@
 
 ---
 
-### 2.水平垂直居中的实现
+### 2.实现水平垂直居中
 
 ---
 
@@ -47,7 +47,7 @@
 
 ```
 
-法三：**绝对定位之 margin-top/left 设为负**（适合子元素宽高）
+法三：**绝对定位之 margin-top/left 设为负**（适合已知子元素宽高）
 
 ```
 .parent {
@@ -66,6 +66,210 @@
 
 ---
 
+### 3.实现两栏布局（左栏固定右栏自适应）
+
+---
+
+#### Answer：
+- flex 布局
+- 绝对定位之 margin-left
+- 绝对定位之 left
+- 浮动之 margin-left
+- 浮动之 overflow
+
+法一：**flex 布局**：左边宽度设为200px，右边 flex：1
+
+```
+.parent {
+  display: flex;
+  height: 100px;
+}
+.left {
+  width: 200px;
+  background: tomato;
+}
+.right {
+  flex: 1;
+  background: gold;
+}
+
+```
+法二：**绝对定位之 margin-left**：左边绝对定位，右边 margin-left：200px
+
+```
+.parent {
+  position: relative;
+  height: 100px;
+}
+.left {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: tomato;
+}
+.right {
+  margin-left: 200px;
+  background: gold;
+}
+
+```
+
+法三：**绝对定位之 left**：右边绝对定位且 left：200px
+
+```
+.parent {
+  position: relative;
+  height: 100px;
+}
+.left {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: tomato;
+}
+.right {
+  margin-left: 200px;
+  background: gold;
+}
+```
+
+法四：**浮动之 margin-left**：左边左浮动，右边 margin-left：200px且宽度为 auto
+
+```
+.parent {
+  position: relative;
+  height: 100px;
+}
+.left {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: tomato;
+}
+.right {
+  margin-left: 200px;
+  background: gold;
+}
+```
+
+法五：**浮动之 overflow**：左边左浮动，右边 overflow: hidden，通过触发 BFC，使两侧不重叠而且实现
+
+自适应
+
+```
+.parent {
+  position: relative;
+  height: 100px;
+}
+.left {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: tomato;
+}
+.right {
+  margin-left: 200px;
+  background: gold;
+}
+```
+---
+
+### 4.实现三栏布局（左右固定中间自适应）
+
+---
+
+#### Answer：
+- flex 布局
+- 绝对定位之 margin
+- 浮动之 margin
+
+法一：**flex 布局**：左右宽度固定， 中间 flex:1
+
+```
+.parent {
+  display: flex;
+  height: 100px;
+}
+
+.left {
+  width: 100px;
+  background: tomato;
+}
+
+.right {
+  width: 100px;
+  background: gold;
+}
+
+.center {
+  flex: 1;
+  background: lightgreen;
+}
+
+```
+法二：**绝对定位之 margin**：左右设为绝对，中间设置对应 margin
+
+```
+.parent {
+  position: relative;
+  height: 100px;
+}
+
+.left {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: tomato;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  background: gold;
+}
+
+.center {
+  margin-left: 100px;
+  margin-right: 200px;
+  height: 100px;
+  background: lightgreen;
+}
+
+```
+法三：**浮动之 margin**：左栏浮动到左边，右栏浮动到右边，中间设置对应 margin（需要注意的是 center 元素需要放到其他元素后）
+
+```
+.parent {
+  height: 100px;
+}
+
+.left {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: tomato;
+}
+
+.right {
+  float: right;
+  width: 200px;
+  height: 100px;
+  background: gold;
+}
+
+.center {
+  height: 100px;
+  margin-left: 100px;
+  margin-right: 200px;
+  background: lightgreen;
+}
+
+```
+
+---
 
 
 
